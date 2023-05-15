@@ -84,6 +84,6 @@ inline void compareBase64(QString a,QString b)
 
 
 #define ADD_TEST(className) static TestCollector::UnitTestClass<className> \
-    test(#className);
+    test_##className(#className);
 
 #endif // TESTCOLLECTOR_H
