@@ -1,5 +1,4 @@
 find_package(Qt6 REQUIRED COMPONENTS Core Network)
-include_directories("${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_AUTOMOC ON)
 
 file(
@@ -13,7 +12,11 @@ file(
         "./responses/operations/*"
 )
 qt_add_library(StellarQtSDK ${SOURCES})
-target_link_libraries(StellarQtSDK PUBLIC
+target_include_directories(StellarQtSDK PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/.."
+)
+target_link_libraries(StellarQtSDK PRIVATE
     cyoencode
     ed25519
     Qt::Core

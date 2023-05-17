@@ -1,3 +1,5 @@
+enable_testing()
+
 set(CMAKE_AUTOMOC ON)
 
 file(GLOB
