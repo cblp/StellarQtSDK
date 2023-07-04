@@ -6,18 +6,18 @@ AccountsRequestBuilder::AccountsRequestBuilder(Server *server):RequestBuilder(se
 
 }
 
-AccountResponse *AccountsRequestBuilder::account(QUrl uri)  {
+AccountResponse const * AccountsRequestBuilder::account(QUrl uri)  {
     this->setRequestUri(uri);//we overwrite the uri
     return server()->get<AccountResponse>(this);
 }
 
-AccountResponse* AccountsRequestBuilder::account(QString accountID)
-{
+AccountResponse const * AccountsRequestBuilder::account(QString accountID) {
     this->setSegments(QStringList()<< "accounts"<< accountID);
     return this->account(this->buildUri());
 }
 
-AccountResponse* AccountsRequestBuilder::account(KeyPair *account) {    
+AccountResponse const *
+AccountsRequestBuilder::account(KeyPair const * account) {
     return this->account(account->getAccountId());
 }
 
@@ -34,7 +34,7 @@ AccountsRequestBuilder &AccountsRequestBuilder::forSigner(QString accountID)
 }
 
 AccountsRequestBuilder &AccountsRequestBuilder::forSigner(KeyPair *accountID)
-{    
+{
     return forSigner(accountID->getAccountId());
 }
 

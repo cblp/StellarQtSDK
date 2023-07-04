@@ -20,7 +20,7 @@ public:
       * This method is helpful for getting the links.
       * @throws IOException
       */
-     AccountResponse *account(QUrl uri);
+     AccountResponse const * account(QUrl uri);
      //AccountResponse *account(QString) = delete;//to protect someone passing an account without using KeyPair class.
 
      /**
@@ -30,9 +30,9 @@ public:
       * @throws IOException
       */
 private:
-     AccountResponse *account(QString accountID);
+     AccountResponse const * account(QString accountID);
 public:
-     AccountResponse *account(KeyPair* account);
+     AccountResponse const * account(KeyPair const * account);
 
      /**
       * @brief signer  filters accounts who have a given signer account id

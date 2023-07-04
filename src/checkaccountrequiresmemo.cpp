@@ -32,9 +32,10 @@ Server *CheckAccountRequiresMemo::server() const
 void CheckAccountRequiresMemo::checkNext()
 {
     QString destination = m_pendingCheckAddressMemos.last();
-    Server *server = static_cast<Server*>(this->parent());    
+    Server *server = static_cast<Server*>(this->parent());
     KeyPair * keyCheck = KeyPair::fromAccountId(destination);
-    AccountResponse* accountResponse = server->accounts().account(keyCheck);
+    AccountResponse const * accountResponse =
+        server->accounts().account(keyCheck);
     delete keyCheck;
 
 
@@ -90,7 +91,7 @@ void CheckAccountRequiresMemo::validateAccountError()
 {
     AccountResponse* accountResponse= static_cast<AccountResponse*>(sender());
 
-    accountResponse->deleteLater();    
+    accountResponse->deleteLater();
     if(!processNotFound(accountResponse))//not found is considered valid destination
     {
         m_retry++;
