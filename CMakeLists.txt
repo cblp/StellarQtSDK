@@ -7,8 +7,8 @@ add_definitions(
 
     -DED25519_NO_SEED
 
-    -DSTELLAR_QT_SDK_CLIENT_NAME=\"\\\"qtcpp-stellar-sdk\\\"\"
-    -DSTELLAR_QT_SDK_CLIENT_VERSION=\"\\\"0.3.17\\\"\"
+    -DSTELLAR_QT_SDK_CLIENT_NAME="qtcpp-stellar-sdk"
+    -DSTELLAR_QT_SDK_CLIENT_VERSION="0.3.17"
 
     # -DSTELLAR_QT_AUTOSET_BASE_FEE
 
